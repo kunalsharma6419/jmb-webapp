@@ -1866,7 +1866,7 @@ textarea.form-control {
   padding: 0;
   height: 100px;
   max-height: 100px;
-  background-color: #dbd7d6;
+  background-color: #fff;
   border-bottom: 1px solid #ededed;
 }
 .navbar > .container,
@@ -1878,6 +1878,7 @@ textarea.form-control {
   padding: 0;
   margin: 0;
   line-height: 100px;
+  max-width: 500px;
 }
 .navbar .logo-light {
   display: none;
@@ -2216,7 +2217,7 @@ textarea.form-control {
   border-bottom: 0 !important;
   height: 90px;
   max-height: 90px;
-  background-color: #dbd7d6 !important;
+  background-color: #fff !important;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.07);
   -webkit-animation: translateHeader 0.8s;
   -moz-animation: translateHeader 0.8s;
@@ -2471,7 +2472,7 @@ textarea.form-control {
     font-size: 12px;
   }
   .navbar .logo-light {
-    max-width: 140px;
+    max-width: 800px !important;
   }
   .navbar-modules .modules__btns-list li:first-child {
     margin-left: 20px;
@@ -2643,7 +2644,7 @@ textarea.form-control {
   .header-transparent .header-full .navbar,
   .header-transparent .header-full .navbar .navbar-brand,
   .header-transparent .navbar-brand {
-    margin-left: 15px;
+    margin-left: 10px;
     line-height: 80px !important;
   }
   .header .header-full .navbar,
@@ -2935,7 +2936,7 @@ textarea.form-control {
 }
 @media only screen and (max-width: 450px) {
   .navbar-brand img {
-    max-width: 110px;
+    max-width: 300px;
   }
   .header-full .module__search-form .search__input {
     max-width: 150px;
@@ -2946,7 +2947,7 @@ textarea.form-control {
 }
 @media only screen and (max-width: 360px) {
   .navbar-brand img {
-    max-width: 100px;
+    max-width: 280px;
   }
   .header-full .module__search-form .search__input {
     max-width: 110px;
@@ -3123,7 +3124,7 @@ textarea.form-control {
   background-color: #fff;
 }
 .footer {
-  background-color: #dbd7d6;
+  background-color: #fff;
 }
 .footer-top {
   padding-top: 110px;
