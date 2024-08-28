@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-5">
                             <div class="slide__content">
-                                <h2 class="slide__title">Industery Solutions!</h2>
+                                <h2 class="slide__title">Industry Printing Solutions!</h2>
                                 <p class="slide__desc">To further develop our corporate strengths we have established a
                                     corporate
                                     mandate to maintain strong core values that truly reflect the companys philosophy.</p>

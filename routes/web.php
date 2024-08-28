@@ -6,6 +6,7 @@ use App\Http\Livewire\Chat\Index;
 use App\Http\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,9 @@ Route::get('/contact-us', [HomeController::class, 'contactus'])->name('contactus
 Route::get('/request-quote', [HomeController::class, 'requestquote'])->name('requestquote');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -45,6 +46,7 @@ require __DIR__.'/auth.php';
 
 
 Route::middleware('auth')->group(function (){
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/chat',Index::class)->name('chat.index');
     Route::get('/chat/{query}',Chat::class)->name('chat');
