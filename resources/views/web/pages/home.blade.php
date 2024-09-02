@@ -4,8 +4,8 @@
 
 @section('content')
     <!-- ============================
-                Slider
-            ============================== -->
+                    Slider
+                ============================== -->
     <section id="slider1" class="slider slider-1">
         <div class="carousel owl-carousel carousel-arrows" data-slide="1" data-slide-md="1" data-slide-sm="1"
             data-autoplay="true" data-nav="true" data-dots="false" data-space="0" data-loop="true" data-speed="3000"
@@ -130,8 +130,8 @@
     </section><!-- /.slider -->
 
     <!-- ===========================
-              Features Layout 2
-            ============================= -->
+                  Features Layout 2
+                ============================= -->
     <section id="featuresLayout2" class="features features-Layout2 pt-0 pb-120">
         <div class="container">
             <div class="row features-wrap">
@@ -180,8 +180,8 @@
 
 
     <!-- ========================
-              About 2
-            =========================== -->
+                  About 2
+                =========================== -->
     <section id="about2" class="about about-2 pt-0 pb-90">
         <div class="container">
             <div class="row">
@@ -207,8 +207,8 @@
                             lead the charge; we can help you build on your past successes and prepare for future.</p>
                     </div>
                     <div class="signature mb-30">
-                        <img src="web/assets/images/about/singnture.png" alt="singnture" class="signature">
-
+                        <img src="web/assets/images/ceo.png" alt="singnture" class="signature">
+                        <p>Founder and CEO</p>
                     </div>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-sm-12 col-md-8 col-lg-5">
@@ -252,8 +252,8 @@
     </section><!-- /.About 2 -->
 
     <!-- ========================
-                Services Layout 3
-            =========================== -->
+                    Services Layout 3
+                =========================== -->
     <section id="servicesLayout3" class="services services-layout3 pt-120 pb-120 bg-gray">
         <div class="container">
             <div class="row heading mb-40">
@@ -358,8 +358,8 @@
     </section><!-- /.Services Layout 3 -->
 
     <!-- =========================
-               Banner 2
-              =========================== -->
+                   Banner 2
+                  =========================== -->
     <section id="banner2" class="banner banner-2 fancybox-white p-0">
         <div class="container-fluid">
             <div class="row">
@@ -449,8 +449,8 @@
     </section><!-- /. Banner 2 -->
 
     <!-- ======================
-              Solutions Grid
-            ========================= -->
+                  Solutions Grid
+                ========================= -->
     <section id="blogGrid" class="blog blog-grid pt-120 pb-70">
         <div class="container">
             <div class="row">
@@ -604,8 +604,8 @@
         </div><!-- /.container -->
     </section><!-- /.blog Grid -->
     <!-- =========================
-              projects carousel 3
-              =========================== -->
+                  projects carousel 3
+                  =========================== -->
     <section id="projectsCarousel3" class="projects-carousel-3 pt-120 pb-90">
         <div class="container">
             <div class="row">
@@ -688,8 +688,8 @@
     </section><!-- /.projects carousel 3 -->
 
     <!-- ========================
-              Features List  2
-            =========================== -->
+                  Features List  2
+                =========================== -->
     <section id="featuresListLayout2"
         class="features-list features-list-layout2 bg-overlay bg-overlay-gradient bg-parallax pt-120">
         <div class="bg-img"><img src="web/assets/images/backgrounds/3.jpg" alt="background"></div>
@@ -751,8 +751,8 @@
     </section><!-- /.Features List 2 -->
 
     <!-- ========================
-              Request Quote  2
-            =========================== -->
+                  Request Quote  2
+                =========================== -->
     <section id="requestQuote" class="request-quote-2 pt-0 pb-30">
         <div class="container">
             <div class="row">
@@ -829,8 +829,8 @@
     </section><!-- /.Request Quote -->
 
     <!-- =========================
-                    Testimonial #1
-            =========================  -->
+                        Testimonial #1
+                =========================  -->
     <section id="testimonial1" class="testimonial testimonial-1 pt-40 pb-70">
         <div class="container">
             <div class="row">
@@ -937,8 +937,8 @@
     </section><!-- /.testimonial1 -->
 
     <!-- =====================
-                 Clients 1
-              ======================== -->
+                     Clients 1
+                  ======================== -->
     <section id="clients" class="clients clients-1 border-top">
         <div class="container">
             <div class="row">
@@ -971,8 +971,8 @@
     </section><!-- /.clients 1 -->
 
     <!-- =========================
-               Banner 4
-              =========================== -->
+                   Banner 4
+                  =========================== -->
     <section id="banner4" class="banner banner-4 pt-120 pb-120">
         <div class="bg-img"><img src="web/assets/images/banners/1.png" alt="background"></div>
         <div class="container">

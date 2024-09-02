@@ -8,7 +8,7 @@
             <div class="col-sm-12 col-md-12 col-lg-4 footer__widget footer__widget-about  mb-30">
               <div class="footer__widget-content">
                 <img src="web/assets/images/logo/logo-footer.png" alt="logo">
-                <p>2307 Beverley Rd Brooklyn, New York <br>11226 United States.</p>
+                <p>AIDC, Nowapara,Manikpur, Dist Bongaigaon, Assam, Pin- 783392</p>
                 <p>Mail: <a href="mailto:buildwellpackaging@gmail.com"><span class="__cf_email__" data-cfemail="7b32151f0e080f12183b4c140914141d55181416" style="color: #156B9C;">buildwellpackaging@gmail.com</span></a></p>
                 <p>Mail: <a href="mailto:buildwellpipes@gmail.com"><span class="__cf_email__" data-cfemail="7b32151f0e080f12183b4c140914141d55181416" style="color: #156B9C;">buildwellpipes@gmail.com</span></a></p>
                 <p style="color: #156B9C;"><a href="tel:+91 9435460099" class="font-weight-bold" >+91 9435460099</a></p>

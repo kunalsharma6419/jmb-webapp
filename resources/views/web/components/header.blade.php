@@ -130,25 +130,58 @@
                 <span class="menu-lines"><span></span></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNavigation">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto ">
                     <li class="nav__item">
                         <a class='nav__item-link {{ Request::routeIs('home') ? 'active' : '' }}' href='/'>Home</a>
                     </li>
                     <li class="nav__item with-dropdown">
-                        <a class='dropdown-toggle nav__item-link {{ Request::routeIs('aboutus') ? 'active' : '' }}' href='/about-us'>Company</a>
+                        <a class='dropdown-toggle nav__item-link {{ Request::routeIs('aboutus') ? 'active' : '' }}'
+                            href='/about-us'>Company</a>
                         <i class="fa fa-angle-right" data-toggle="dropdown"></i>
                         <ul class="dropdown-menu">
-                            <li class="nav__item"><a class='nav__item-link {{ Request::routeIs('aboutus') ? 'active' : '' }}' href='/about-us'>About Us</a></li>
-                            <li class="nav__item"><a class='nav__item-link {{ Request::routeIs('whyus') ? 'active' : '' }}' href='/why-choose-us'>Why Choose Us</a></li>
-                            <li class="nav__item"><a class='nav__item-link {{ Request::routeIs('helpandfaq') ? 'active' : '' }}' href='/help-and-faq'>Help & FAQs</a></li>
+                            <li class="nav__item"><a
+                                    class='nav__item-link {{ Request::routeIs('aboutus') ? 'active' : '' }}'
+                                    href='/about-us'>About Us</a></li>
+                            <li class="nav__item"><a
+                                    class='nav__item-link {{ Request::routeIs('whyus') ? 'active' : '' }}'
+                                    href='/why-choose-us'>Why Choose Us</a></li>
+                            <li class="nav__item"><a
+                                    class='nav__item-link {{ Request::routeIs('helpandfaq') ? 'active' : '' }}'
+                                    href='/help-and-faq'>Help & FAQs</a></li>
                         </ul>
                     </li>
                     <li class="nav__item">
-                        <a class='nav__item-link {{ Request::routeIs('ourproducts') ? 'active' : '' }}' href='/our-products'>Our Products</a>
+                        <a class='nav__item-link {{ Request::routeIs('ourproducts') ? 'active' : '' }}'
+                            href='/our-products'>Our Products</a>
                     </li>
                     <li class="nav__item">
-                        <a class='nav__item-link {{ Request::routeIs('contactus') ? 'active' : '' }}' href='/contact-us'>Contact Us</a>
+                        <a class='nav__item-link {{ Request::routeIs('contactus') ? 'active' : '' }}'
+                            href='/contact-us'>Contact Us</a>
                     </li>
+                    @if (Route::has('login'))
+                        @auth
+                            <li class="nav__item d-block d-md-none" style="margin-bottom: 10px;">
+                                <a class='btn btn__primary nav__item-link' href="{{ url('/dashboard') }}">
+                                    <span>Dashboard</span><i class="icon-arrow-right2"></i>
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav__item d-block d-md-none" style="margin-bottom: 10px;">
+                                <a class='btn btn__primary nav__item-link' href="{{ route('login') }}">
+                                    <span>Login</span><i class="icon-arrow-right2"></i>
+                                </a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav__item d-block d-md-none">
+                                    <a class='btn btn__primary nav__item-link' href="{{ route('register') }}">
+                                        <span>Register</span><i class="icon-arrow-right2"></i>
+                                    </a>
+                                </li>
+                            @endif
+                        @endauth
+                    @endif
+
+
                 </ul>
             </div>
             <div class="navbar-modules">
@@ -185,4 +218,3 @@
         </div><!-- /.container -->
     </nav><!-- /.navbar -->
 </header><!-- /.Header -->
-
