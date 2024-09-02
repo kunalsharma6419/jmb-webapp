@@ -50,18 +50,14 @@
             <div class="heading heading-2 mt-50">
               <span class="heading__subtitle">World's Leading Packaging and Printing Industry Corporation!</span>
               <h2 class="heading__title">Providing Innovative & Sustainable Solutions</h2>
-              <p class="heading__desc">As a diversified construction management, design-build, and general contracting
-                firm, JMB Packaging Group is recognized as one of the World's leading Packaging and Printing Industry and Manufacturing</p>
-                <p>Quality Assurance: We adhere to strict quality control measures to ensure that our products meet the highest standards.
+              <p class="heading__desc">Message to the Customers :-</p>
+                <p>Dear Valued Customers,
                 </p>
-                <p>Sustainability: Committed to reducing our environmental footprint, we offer a range of eco-friendly packaging solutions.
-                </p>
-                <p>Customization: Our products can be tailored to your specific needs, ensuring the perfect fit for your branding and operational requirements.
-                </p>
-                <p>Customer Focus: Our team is dedicated to providing excellent service and support, ensuring a seamless experience from inquiry to delivery.
+                <p>At JMB Packaging, our mission is simple—your satisfaction is our highest priority. We are committed to providing you with top-quality products and innovative services designed to meet and exceed your expectations. As we continue to grow and evolve, our dedication to delivering exceptional value remains steadfast. Thank you for trusting us to be your partner; we look forward to serving you with excellence and innovation, ensuring that your experience with us is nothing short of extraordinary."
                 </p>
             </div><!-- /heading -->
-            <img src="web/assets/images/about/singnture.png" alt="singnture" class="signature mr-30">
+            <img src="web/assets/images/ceo.png" alt="singnture" class="signature mr-30">
+            <p>Founder and CEO</p>
             <a href="#" class="btn btn__default btn__bordered">More About Us</a>
           </div><!-- /.col-lg-5 -->
         </div><!-- /.row -->

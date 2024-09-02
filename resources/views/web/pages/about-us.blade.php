@@ -25,66 +25,86 @@
       </div><!-- /.container -->
     </section><!-- /.page-title -->
 
-    <!-- ========================
-      About 2
-    =========================== -->
-    <section id="about2" class="about about-2 pt-120 pb-90">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-9 offset-xl-1 ">
-            <div class="heading heading-3 mb-50">
-              <span class="heading__subtitle">Manufacture A Variety Of High Quality Products</span>
-              <h2 class="heading__title">A Leading Industrial & Manufacturing Company, Serving Since 1997.</h2>
-            </div><!-- /heading -->
-          </div><!-- /.col-lg-9 -->
-        </div><!-- /.row -->
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-4">
-            <div class="about__text mt-30">
-              <p>JMB Packaging Group is a representative Industrial Construction operator providing full range of service in
-                the sphere of Mechanical Engineering worldwide.</p>
-              <p>At JMB Packaging Group, we believe that packaging is more than just a means to transport goods; it's a vital part of your brand's story. With years of experience in the Packaging and Printing Industry, we are committed to providing high-quality, innovative, and environmentally friendly packaging solutions for various sectors. Our mission is to empower businesses with products that combine functionality with sustainability.</p>
-            </div>
-            <div class="signature mb-30">
-              <img src="web/assets/images/about/singnture.png" alt="singnture" class="signature">
-
-            </div>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-sm-12 col-md-8 col-lg-5">
-            <div class="about__img">
-              <img src="web/assets/images/about/3.jpg" alt="about" class="img-fluid">
-              <a href="https://www.youtube.com/watch?4=&v=TKnufs85hXk" class="btn btn__primary popup-video">
-                <i class="fa fa-play"></i><span>Watch Video!</span>
-              </a>
-            </div><!-- /.about-img -->
-          </div><!-- /.col-lg-5 -->
-          <div class="col-sm-12 col-md-12 col-lg-3">
-            <div class="features-list features-list-layout1 mt-30">
-              <div class="feature-item feature-list-item">
-                <div class="feature__content">
-                  <h4 class="feature__title">Quality</h4>
-                  <p class="feature__desc">Following the quality of our service thus having gained trust of our many
-                    clients.</p>
-                </div><!-- /.feature-content -->
-              </div><!-- /.feature-item -->
-              <div class="feature-item feature-list-item">
-                <div class="feature__content">
-                  <h4 class="feature__title">Reliability</h4>
-                  <p class="feature__desc">We have established a corporate mandate to maintain strong core values that
-                    truly reflect.</p>
-                </div><!-- /.feature-content -->
-              </div><!-- /.feature-item -->
-              <div class="feature-item feature-list-item">
-                <div class="feature__content">
-                  <h4 class="feature__title">Innovation</h4>
-                  <p class="feature__desc">Our company develops a unique dynamically and keeps in step with the times.
-                  </p>
-                </div><!-- /.feature-content -->
-              </div><!-- /.feature-item -->
-            </div>
-          </div><!-- /.col-lg-3 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
+     <!-- ========================
+                          About 2
+                        =========================== -->
+    <section id="about2" class="about about-2 pt-0 pb-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-9 offset-xl-1 ">
+                    <div class="heading heading-3 mb-50">
+                        <span class="heading__subtitle">Manufacture A Variety Of High Quality Products</span>
+                        <h2 class="heading__title">A Leading Industrial & Manufacturing Company, Serving Since 1990.</h2>
+                    </div><!-- /heading -->
+                </div><!-- /.col-lg-9 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="about__text mt-30">
+                        <p>CEO Message to team</p>
+                        <p>Dear Team,
+                            <br>
+                            Our journey has always been about pushing boundaries and setting new standards in excellence. As
+                            we move forward, our focus remains unwavering—delivering the highest quality products paired
+                            with innovative services that exceed our customers' expectations. Together, we are not just
+                            meeting needs but creating lasting value and building trust with every interaction. Your
+                            dedication and passion are the driving forces behind our success, and I am confident that, with
+                            our combined efforts, we will elevate the customer experience to unparalleled heights.
+                            <br>
+                            Let’s continue to innovate, excel, and achieve greatness together!"
+                        </p>
+                    </div>
+                    <div class="signature mb-30">
+                        <img src="web/assets/images/ceo.png" alt="singnture" class="signature">
+                        <p>Founder and CEO</p>
+                    </div>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-sm-12 col-md-8 col-lg-5">
+                    <div class="about__img">
+                        <img src="web/assets/images/about/3.jpg" alt="about" class="img-fluid">
+                        <a href="https://www.youtube.com/watch?4=&v=TKnufs85hXk" class="btn btn__primary popup-video">
+                            <i class="fa fa-play"></i><span>Watch Video!</span>
+                        </a>
+                    </div><!-- /.about-img -->
+                </div><!-- /.col-lg-5 -->
+                <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div class="features-list features-list-layout1 mt-30">
+                        <div class="feature-item feature-list-item">
+                            <div class="feature__content">
+                                <h4 class="feature__title">Quality Assurance</h4>
+                                <p class="feature__desc">We adhere to strict quality control measures to ensure that our
+                                    products meet the highest standards.
+                                    clients.</p>
+                            </div><!-- /.feature-content -->
+                        </div><!-- /.feature-item -->
+                        <div class="feature-item feature-list-item">
+                            <div class="feature__content">
+                                <h4 class="feature__title">Sustainability</h4>
+                                <p class="feature__desc">Committed to reducing our environmental footprint, we offer a
+                                    range of eco-friendly packaging solutions.
+                                    truly reflect.</p>
+                            </div><!-- /.feature-content -->
+                        </div><!-- /.feature-item -->
+                        <div class="feature-item feature-list-item">
+                            <div class="feature__content">
+                                <h4 class="feature__title">Customization</h4>
+                                <p class="feature__desc">Our products can be tailored to your specific needs, ensuring the
+                                    perfect fit for your branding and operational requirements.
+                                </p>
+                            </div><!-- /.feature-content -->
+                        </div><!-- /.feature-item -->
+                        <div class="feature-item feature-list-item">
+                            <div class="feature__content">
+                                <h4 class="feature__title">Customer Focus</h4>
+                                <p class="feature__desc">Our team is dedicated to providing excellent service and support,
+                                    ensuring a seamless experience from inquiry to delivery.
+                                </p>
+                            </div><!-- /.feature-content -->
+                        </div><!-- /.feature-item -->
+                    </div>
+                </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
     </section><!-- /.About 2 -->
 
     <!-- =========================

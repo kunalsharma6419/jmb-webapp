@@ -4,8 +4,8 @@
 
 @section('content')
     <!-- ============================
-                    Slider
-                ============================== -->
+                            Slider
+                        ============================== -->
     <section id="slider1" class="slider slider-1">
         <div class="carousel owl-carousel carousel-arrows" data-slide="1" data-slide-md="1" data-slide-sm="1"
             data-autoplay="true" data-nav="true" data-dots="false" data-space="0" data-loop="true" data-speed="3000"
@@ -37,8 +37,9 @@
                                     <i class="icon-manufacturing-plant"></i>
                                 </div>
                                 <h3 class="slider__panel-title">Our Mission</h3>
-                                <p class="slider__panel-desc">Utilising latest processing solutions, and decades of work
-                                    experience.
+                                <p class="slider__panel-desc">Our mission is to manufacture high-quality products that
+                                    exceed customer expectations while continuously improving our processes, prioritizing
+                                    safety, and minimizing environmental impact.
                                 </p>
                                 <a href="#" class="btn btn__primary btn__link">
                                     <span>Explore</span>
@@ -76,8 +77,9 @@
                                     <i class="icon-wheel"></i>
                                 </div>
                                 <h3 class="slider__panel-title">Our Vision</h3>
-                                <p class="slider__panel-desc">Utilising latest processing solutions, and decades of work
-                                    experience.
+                                <p class="slider__panel-desc">To be the leading provider of sustainable and innovative
+                                    solutions in plastic packaging Industry, setting the standard for excellence in quality,
+                                    efficiency, and environmental stewardship.
                                 </p>
                                 <a href="#" class="btn btn__primary btn__link">
                                     <span>Explore</span>
@@ -130,8 +132,8 @@
     </section><!-- /.slider -->
 
     <!-- ===========================
-                  Features Layout 2
-                ============================= -->
+                          Features Layout 2
+                        ============================= -->
     <section id="featuresLayout2" class="features features-Layout2 pt-0 pb-120">
         <div class="container">
             <div class="row features-wrap">
@@ -180,31 +182,33 @@
 
 
     <!-- ========================
-                  About 2
-                =========================== -->
+                          About 2
+                        =========================== -->
     <section id="about2" class="about about-2 pt-0 pb-90">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-9 offset-xl-1 ">
                     <div class="heading heading-3 mb-50">
                         <span class="heading__subtitle">Manufacture A Variety Of High Quality Products</span>
-                        <h2 class="heading__title">A Leading Industrial & Manufacturing Company, Serving Since 1997.</h2>
+                        <h2 class="heading__title">A Leading Industrial & Manufacturing Company, Serving Since 1990.</h2>
                     </div><!-- /heading -->
                 </div><!-- /.col-lg-9 -->
             </div><!-- /.row -->
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="about__text mt-30">
-                        <p>JMB Packaging Group is a representative Industrial Construction operator providing full range of
-                            service in
-                            the sphere of Mechanical Engineering worldwide.</p>
-                        <p>The world is changing faster than ever before, business is no exception. JMB Packaging industries
-                            are
-                            threatened as technology disrupts and software “eats the world.” Yet those that embrace change
-                            are
-                            thriving, building bigger, better, faster, and stronger products than ever before. You are
-                            helping to
-                            lead the charge; we can help you build on your past successes and prepare for future.</p>
+                        <p>CEO Message to team</p>
+                        <p>Dear Team,
+                            <br>
+                            Our journey has always been about pushing boundaries and setting new standards in excellence. As
+                            we move forward, our focus remains unwavering—delivering the highest quality products paired
+                            with innovative services that exceed our customers' expectations. Together, we are not just
+                            meeting needs but creating lasting value and building trust with every interaction. Your
+                            dedication and passion are the driving forces behind our success, and I am confident that, with
+                            our combined efforts, we will elevate the customer experience to unparalleled heights.
+                            <br>
+                            Let’s continue to innovate, excel, and achieve greatness together!"
+                        </p>
                     </div>
                     <div class="signature mb-30">
                         <img src="web/assets/images/ceo.png" alt="singnture" class="signature">
@@ -223,25 +227,33 @@
                     <div class="features-list features-list-layout1 mt-30">
                         <div class="feature-item feature-list-item">
                             <div class="feature__content">
-                                <h4 class="feature__title">Quality</h4>
-                                <p class="feature__desc">Following the quality of our service thus having gained trust of
-                                    our many
+                                <h4 class="feature__title">Quality Assurance</h4>
+                                <p class="feature__desc">We adhere to strict quality control measures to ensure that our
+                                    products meet the highest standards.
                                     clients.</p>
                             </div><!-- /.feature-content -->
                         </div><!-- /.feature-item -->
                         <div class="feature-item feature-list-item">
                             <div class="feature__content">
-                                <h4 class="feature__title">Reliability</h4>
-                                <p class="feature__desc">We have established a corporate mandate to maintain strong core
-                                    values that
+                                <h4 class="feature__title">Sustainability</h4>
+                                <p class="feature__desc">Committed to reducing our environmental footprint, we offer a
+                                    range of eco-friendly packaging solutions.
                                     truly reflect.</p>
                             </div><!-- /.feature-content -->
                         </div><!-- /.feature-item -->
                         <div class="feature-item feature-list-item">
                             <div class="feature__content">
-                                <h4 class="feature__title">Innovation</h4>
-                                <p class="feature__desc">Our company develops a unique dynamically and keeps in step with
-                                    the times.
+                                <h4 class="feature__title">Customization</h4>
+                                <p class="feature__desc">Our products can be tailored to your specific needs, ensuring the
+                                    perfect fit for your branding and operational requirements.
+                                </p>
+                            </div><!-- /.feature-content -->
+                        </div><!-- /.feature-item -->
+                        <div class="feature-item feature-list-item">
+                            <div class="feature__content">
+                                <h4 class="feature__title">Customer Focus</h4>
+                                <p class="feature__desc">Our team is dedicated to providing excellent service and support,
+                                    ensuring a seamless experience from inquiry to delivery.
                                 </p>
                             </div><!-- /.feature-content -->
                         </div><!-- /.feature-item -->
@@ -252,8 +264,8 @@
     </section><!-- /.About 2 -->
 
     <!-- ========================
-                    Services Layout 3
-                =========================== -->
+                            Services Layout 3
+                        =========================== -->
     <section id="servicesLayout3" class="services services-layout3 pt-120 pb-120 bg-gray">
         <div class="container">
             <div class="row heading mb-40">
@@ -358,8 +370,8 @@
     </section><!-- /.Services Layout 3 -->
 
     <!-- =========================
-                   Banner 2
-                  =========================== -->
+                           Banner 2
+                          =========================== -->
     <section id="banner2" class="banner banner-2 fancybox-white p-0">
         <div class="container-fluid">
             <div class="row">
@@ -449,8 +461,8 @@
     </section><!-- /. Banner 2 -->
 
     <!-- ======================
-                  Solutions Grid
-                ========================= -->
+                          Solutions Grid
+                        ========================= -->
     <section id="blogGrid" class="blog blog-grid pt-120 pb-70">
         <div class="container">
             <div class="row">
@@ -604,8 +616,8 @@
         </div><!-- /.container -->
     </section><!-- /.blog Grid -->
     <!-- =========================
-                  projects carousel 3
-                  =========================== -->
+                          projects carousel 3
+                          =========================== -->
     <section id="projectsCarousel3" class="projects-carousel-3 pt-120 pb-90">
         <div class="container">
             <div class="row">
@@ -688,8 +700,8 @@
     </section><!-- /.projects carousel 3 -->
 
     <!-- ========================
-                  Features List  2
-                =========================== -->
+                          Features List  2
+                        =========================== -->
     <section id="featuresListLayout2"
         class="features-list features-list-layout2 bg-overlay bg-overlay-gradient bg-parallax pt-120">
         <div class="bg-img"><img src="web/assets/images/backgrounds/3.jpg" alt="background"></div>
@@ -751,8 +763,8 @@
     </section><!-- /.Features List 2 -->
 
     <!-- ========================
-                  Request Quote  2
-                =========================== -->
+                          Request Quote  2
+                        =========================== -->
     <section id="requestQuote" class="request-quote-2 pt-0 pb-30">
         <div class="container">
             <div class="row">
@@ -829,8 +841,8 @@
     </section><!-- /.Request Quote -->
 
     <!-- =========================
-                        Testimonial #1
-                =========================  -->
+                                Testimonial #1
+                        =========================  -->
     <section id="testimonial1" class="testimonial testimonial-1 pt-40 pb-70">
         <div class="container">
             <div class="row">
@@ -937,8 +949,8 @@
     </section><!-- /.testimonial1 -->
 
     <!-- =====================
-                     Clients 1
-                  ======================== -->
+                             Clients 1
+                          ======================== -->
     <section id="clients" class="clients clients-1 border-top">
         <div class="container">
             <div class="row">
@@ -971,8 +983,8 @@
     </section><!-- /.clients 1 -->
 
     <!-- =========================
-                   Banner 4
-                  =========================== -->
+                           Banner 4
+                          =========================== -->
     <section id="banner4" class="banner banner-4 pt-120 pb-120">
         <div class="bg-img"><img src="web/assets/images/banners/1.png" alt="background"></div>
         <div class="container">

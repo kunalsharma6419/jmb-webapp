@@ -4,8 +4,8 @@
 
 @section('content')
     <!-- ========================
-               page title
-            =========================== -->
+                   page title
+                =========================== -->
     <section id="pageTitle" class="page-title page-title-layout6 bg-overlay bg-parallax">
         <div class="bg-img"><img src="web/assets/images/page-titles/6.jpg" alt="background"></div>
         <div class="container">
@@ -25,8 +25,8 @@
     </section><!-- /.page-title -->
 
     <!-- ======================
-               FAQ
-            ========================= -->
+                   FAQ
+                ========================= -->
     <section id="faq" class="faq pt-120">
         <div class="container">
             <div class="row">
@@ -174,8 +174,8 @@
     </section><!-- /.FAQ -->
 
     <!-- ==========================
-                contact 2
-            =========================== -->
+                    contact 2
+                =========================== -->
     <section id="contact2" class="contact contact-2 p-0">
         <div class="container">
             <div class="row">
@@ -184,13 +184,19 @@
                         <div class="contact-panel mb-40">
                             <h6 class="contact__panel-title">Contact Details</h6>
                             <ul class="contact__panel-list list-unstyled">
-                                <li><i class="fa fa-map-marker"></i><span>Brooklyn, New York 11226 United States.</span>
+                                <li><i class="fa fa-map-marker"></i><span>AIDC, Nowapara,Manikpur, Dist Bongaigaon, Assam,
+                                        Pin- 783392</span>
                                 </li>
-                                <li><i class="fa fa-envelope"></i><span>Email: <a href="/cdn-cgi/l/email-protection"
+                                <li><i class="fa fa-envelope"></i><span>Email: <a
+                                            href="mailto:buildwellpackaging@gmail.com" class="__cf_email__"
+                                            data-cfemail="024b6c667771766b6142356d706d6d642c616d6f">buildwellpackaging@gmail.com</a></span>
+                                </li>
+                                <li><i class="fa fa-envelope"></i><span>Email: <a href="mailto:buildwellpipes@gmail.com"
                                             class="__cf_email__"
-                                            data-cfemail="024b6c667771766b6142356d706d6d642c616d6f">[email&#160;protected]</a></span>
+                                            data-cfemail="1950777d6c6a6d707a592e766b76767f377a7674">buildwellpipes@gmail.com</a></span>
                                 </li>
-                                <li><i class="fa fa-phone"></i><span>002 010123456789</span></li>
+                                <li><i class="fa fa-phone"></i><span>+91 9435460099</span></li>
+                                <li><i class="fa fa-phone"></i><span>+91 8882361616</span></li>
                             </ul>
                         </div>
                         <div class="contact-panel">
@@ -205,7 +211,10 @@
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
-        <div id="map"></div>
+        <iframe id="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.8105940987175!2d90.75669507942388!3d26.461833619829374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37590885e0013eb7%3A0xab41615711408a2c!2sNowapara%20Number%201%20Rd%2C%20Assam%20783392!5e0!3m2!1sen!2sin!4v1725262141740!5m2!1sen!2sin"
+            height="450" style="border:0; width: 100%;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="web/assets/js/google-map.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqrqPZOVegy1VIdyIcndxZY9YGoK-x0Yo&callback=initMap" async
@@ -213,8 +222,8 @@
     </section><!-- /.contact 2 -->
 
     <!-- =====================
-               Clients 1
-            ======================== -->
+                   Clients 1
+                ======================== -->
     <section id="clients" class="clients clients-1">
         <div class="container">
             <div class="row">
