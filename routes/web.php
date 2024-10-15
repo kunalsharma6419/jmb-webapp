@@ -59,6 +59,7 @@ Route::middleware('auth', 'checkUserStatus')->group(function (){
     Route::get('/users',Users::class)->name('users');    
     Route::resource('roles', RolesController::class);
     Route::resource('permissions', PermissionsController::class);
+    
     Route::post('asRoles', [RoleassignController::class, 'assignRoles'])->name('asRoles.assign');
     
 

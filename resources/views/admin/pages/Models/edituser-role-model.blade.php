@@ -1,6 +1,6 @@
 <!-- Edit User Modal -->
 <div id="editUserModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-    <div class="bg-white rounded-lg shadow-lg p-8 relative w-full"> <!-- Increased width -->
+    <div class="bg-white rounded-lg shadow-lg p-8 relative w-full max-w-md"> <!-- Increased width -->
         <button type="button" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeEditUserModal">
             &times; <!-- Close button -->
         </button>
@@ -12,7 +12,7 @@
             @csrf
             <input type="hidden" name="user_id" id="editUserId" value="" />
 
-            <div class="mb-4 form-group">
+            <div class="mb-4">
                 <label for="modalEditUserName" class="block text-sm font-medium text-gray-700">Username</label>
                 <input type="text" id="modalEditUserName" name="modalEditUserName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500" value="" readonly />
             </div>
@@ -26,7 +26,7 @@
                 </select>
             </div>
 
-            <div class="mb-4 form-group">
+            <div class="mb-4">
                 <h5 class="text-lg font-medium">Assign Role</h5>
                 <table class="min-w-full border-collapse border border-gray-300">
                     <thead>
@@ -54,13 +54,14 @@
             </div>
 
             <div class="text-center flex justify-between">
-                <button type="submit" class="mt-4 btn btn-primary">Submit</button>
-                <button type="button" class="mt-4 btn btn-outline-secondary" id="cancelEditUserModal">Cancel</button>
+                <button type="button" class="mt-4 px-4 py-2 text-gray-700 bg-gray-200 rounded-lg shadow-sm hover:bg-gray-300 focus:outline-none" id="cancelEditUserModal">Cancel</button>
+                <button type="submit" class="mt-4 px-4 py-2 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none">Submit</button>
             </div>
         </form>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const editUserBtns = document.querySelectorAll('.edit-user-btn');

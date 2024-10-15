@@ -131,7 +131,7 @@
                                 </td>
                                 <!-- Actions -->
                                 <td class="px-4 py-2 text-right border border-l-0">
-                                <td class="px-4 py-2 text-right border border-l-0">
+                              
     <button type="button" class="btn btn-primary edit-user-btn" 
         data-bs-toggle="modal" 
         data-bs-target="#editUser" 
@@ -160,6 +160,28 @@
 
    <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    @endif
+
+    @if(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: '{{ session('error') }}',
+            showConfirmButton: false,
+            timer: 2000
+        });
+    @endif
+
+
         // Show/Hide Role Cards Logic
         const showAllBtn = document.getElementById('showAllRolesBtn');
         const collapseBtnContainer = document.getElementById('collapseRolesBtnContainer');

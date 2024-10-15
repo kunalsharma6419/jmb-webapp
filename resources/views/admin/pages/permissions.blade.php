@@ -4,13 +4,11 @@
 
 @section('admincontent')
 
-
 <!-- Start Permissions Management -->
 <div class="col-span-2 card xl:col-span-1">
     <div class="card-header flex item-center justify-between">
         Permissions 
-        <button type="button" class="btn btn-success" 
-            @click="showAddPermissionModal()">
+        <button type="button" class="btn btn-success" id="addPermissionButton">
             Add New Permission
         </button>
     </div>
@@ -48,8 +46,7 @@
                         <!-- Edit Permission Button -->
                         <button type="button" class="btn btn-primary edit-permission-btn" 
                             data-id="{{ $permission->id }}" 
-                            data-title="{{ $permission->title }}"
-                            @click="showEditPermissionModal('{{ $permission->id }}', '{{ $permission->title }}')">
+                            data-title="{{ $permission->title }}">
                             Edit
                         </button>
 
@@ -72,6 +69,28 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add New Permission
+        document.getElementById('addPermissionButton').addEventListener('click', showAddPermissionModal);
+
+        // Edit Permission Button
+        document.querySelectorAll('.edit-permission-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const id = button.getAttribute('data-id');
+                const title = button.getAttribute('data-title');
+                showEditPermissionModal(id, title);
+            });
+        });
+
+        // Delete Permission Button
+        document.querySelectorAll('.delete-permission-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const permissionId = button.getAttribute('data-id');
+                showDeleteConfirmation(permissionId);
+            });
+        });
+    });
+
     function showAddPermissionModal() {
         Swal.fire({
             title: 'Add New Permission',
@@ -87,74 +106,123 @@
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post('{{ route('permissions.store') }}', {
-                    title: result.value.permissionName,
-                    _token: '{{ csrf_token() }}',
-                }).then(response => {
-                    Swal.fire('Success!', 'Permission added successfully!', 'success').then(() => {
-                        location.reload(); // Reload the page to reflect changes
-                    });
-                }).catch(error => {
-                    Swal.fire('Error!', 'Could not add permission.', 'error');
-                });
+                // Create a form dynamically and submit it
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '{{ action([\App\Http\Controllers\PermissionsController::class, 'store']) }}';
+
+                // Add CSRF token
+                const tokenInput = document.createElement('input');
+                tokenInput.type = 'hidden';
+                tokenInput.name = '_token';
+                tokenInput.value = '{{ csrf_token() }}';
+                form.appendChild(tokenInput);
+
+                // Add permission name
+                const permissionNameInput = document.createElement('input');
+                permissionNameInput.type = 'hidden';
+                permissionNameInput.name = 'modalPermissionName';
+                permissionNameInput.value = result.value.permissionName;
+                form.appendChild(permissionNameInput);
+
+                // Add core permission checkbox if needed
+                const corePermissionInput = document.createElement('input');
+                corePermissionInput.type = 'hidden';
+                corePermissionInput.name = 'corePermission';
+                corePermissionInput.value = '0'; // Default to not checked
+                form.appendChild(corePermissionInput);
+
+                document.body.appendChild(form);
+                form.submit(); // Submit the form
             }
         });
+    }function showEditPermissionModal(id, title) {
+    Swal.fire({
+        title: 'Edit Permission',
+        input: 'text',
+        inputLabel: 'Permission Name',
+        inputValue: title,
+        showCancelButton: true,
+        confirmButtonText: 'Update',
+        preConfirm: (permissionName) => {
+            if (!permissionName) {
+                Swal.showValidationMessage('Please enter a permission name');
+                return false; // Return false to prevent submission
+            }
+            return permissionName; // Return the permission name
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Create a form dynamically and submit it
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = `{{ action([\App\Http\Controllers\PermissionsController::class, 'update'], ':permission_id') }}`.replace(':permission_id', id);
+
+            // CSRF Token
+            const tokenInput = document.createElement('input');
+            tokenInput.type = 'hidden';
+            tokenInput.name = '_token';
+            tokenInput.value = '{{ csrf_token() }}';
+            form.appendChild(tokenInput);
+
+            // Method Override
+            const methodInput = document.createElement('input');
+            methodInput.type = 'hidden';
+            methodInput.name = '_method';
+            methodInput.value = 'PUT';
+            form.appendChild(methodInput);
+
+            // Permission Name
+            const permissionNameInput = document.createElement('input');
+            permissionNameInput.type = 'hidden';
+            permissionNameInput.name = 'editPermissionName';
+            permissionNameInput.value = result.value; // Get the permission name from SweetAlert
+            form.appendChild(permissionNameInput);
+
+            // Append form to body and submit
+            document.body.appendChild(form);
+            form.submit(); // Submit the form
+        }
+    });
+
+
     }
 
-    function showEditPermissionModal(id, title) {
+    function showDeleteConfirmation(permissionId) {
         Swal.fire({
-            title: 'Edit Permission',
-            input: 'text',
-            inputLabel: 'Permission Name',
-            inputValue: title,
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Update',
-            preConfirm: (permissionName) => {
-                if (!permissionName) {
-                    Swal.showValidationMessage('Please enter a permission name');
-                }
-                return { permissionName: permissionName };
-            }
+            confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.put(`/admin/permissions/${id}`, {
-                    title: result.value.permissionName,
-                    _token: '{{ csrf_token() }}',
-                }).then(response => {
-                    Swal.fire('Success!', 'Permission updated successfully!', 'success').then(() => {
-                        location.reload(); // Reload the page to reflect changes
-                    });
-                }).catch(error => {
-                    Swal.fire('Error!', 'Could not update permission.', 'error');
-                });
+                // Create a form element for deletion
+                const form = document.createElement('form');
+                form.method = 'POST';
+                // Construct the action URL correctly
+                form.action = `{{ action([\App\Http\Controllers\PermissionsController::class, 'destroy'], ':permission_id') }}`.replace(':permission_id', permissionId);
+
+                // Add CSRF token
+                const tokenInput = document.createElement('input');
+                tokenInput.type = 'hidden';
+                tokenInput.name = '_token';
+                tokenInput.value = '{{ csrf_token() }}';
+                form.appendChild(tokenInput);
+
+                // Method Override
+                const methodInput = document.createElement('input');
+                methodInput.type = 'hidden';
+                methodInput.name = '_method';
+                methodInput.value = 'DELETE';
+                form.appendChild(methodInput);
+
+                // Append form to body and submit
+                document.body.appendChild(form);
+                form.submit(); // Submit the form
             }
         });
     }
-
-    document.querySelectorAll('.delete-permission-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            const permissionId = button.getAttribute('data-id');
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    axios.delete(`/admin/permissions/${permissionId}`, {
-                        data: { _token: '{{ csrf_token() }}' }
-                    }).then(response => {
-                        Swal.fire('Deleted!', 'Permission has been deleted.', 'success').then(() => {
-                            location.reload(); // Reload the page to reflect changes
-                        });
-                    }).catch(error => {
-                        Swal.fire('Error!', 'Could not delete permission.', 'error');
-                    });
-                }
-            });
-        });
-    });
 </script>
 
 @endsection
