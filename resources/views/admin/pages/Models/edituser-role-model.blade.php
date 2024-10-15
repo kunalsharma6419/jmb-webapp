@@ -1,6 +1,6 @@
 <!-- Edit User Modal -->
 <div id="editUserModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-    <div class="bg-white rounded-lg shadow-lg p-8 relative w-96"> <!-- Increased width -->
+    <div class="bg-white rounded-lg shadow-lg p-8 relative w-full"> <!-- Increased width -->
         <button type="button" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeEditUserModal">
             &times; <!-- Close button -->
         </button>
@@ -53,7 +53,7 @@
                 </table>
             </div>
 
-            <div class="text-center">
+            <div class="text-center flex justify-between">
                 <button type="submit" class="mt-4 btn btn-primary">Submit</button>
                 <button type="button" class="mt-4 btn btn-outline-secondary" id="cancelEditUserModal">Cancel</button>
             </div>
