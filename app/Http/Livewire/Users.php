@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Conversation;
 use App\Models\User;
+use App\Models\Role;
 use Livewire\Component;
 
 class Users extends Component
@@ -58,6 +59,8 @@ class Users extends Component
         return redirect()->route('chat', ['query' => $createdConversation->id]);
         
     }
+
+  
 
 
     public function render()

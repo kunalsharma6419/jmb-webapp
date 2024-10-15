@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany(Conversation::class,'sender_id')->orWhere('receiver_id',$this->id)->whereNotDeleted();
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_users'); 
+    }
+
     /**
      * The channels the user receives notification broadcasts on.
      */
