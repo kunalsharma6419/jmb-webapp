@@ -6,11 +6,7 @@
         @csrf
 
 
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -50,4 +46,35 @@
             </x-primary-button>
         </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check for errors
+            @if($errors->any())
+                let errorMessages = '';
+                @foreach ($errors->all() as $error)
+                    errorMessages += '{{ $error }}';
+                @endforeach
+                
+                Swal.fire({
+                    icon: 'error',
+                    title: 'There were some errors',
+                    html: errorMessages ,
+                    showConfirmButton: true
+                });
+            @endif
+    
+            // Check for success message
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            @endif
+        });
+    </script>
+    
 </x-guest-layout>
