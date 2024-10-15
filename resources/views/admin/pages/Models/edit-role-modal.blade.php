@@ -29,56 +29,66 @@
             <div class="mb-4">
                 <h5 class="mb-2 text-lg font-semibold text-gray-700">Role Permissions</h5>
                 <div class="overflow-x-auto">
-                    <table class="min-w-full bg-white divide-y divide-gray-200 shadow-sm rounded-lg">
-                        <tbody class="divide-y divide-gray-200">
-                            <!-- Administrator Access -->
-                            <tr>
-                                <td class="px-4 py-3 font-semibold text-gray-700 whitespace-nowrap">Administrator Access</td>
-                                <td class="px-4 py-3">
-                                    <div class="flex justify-end">
-                                        <div class="form-check">
-                                            <input class="form-check-input rounded-full border-gray-300 focus:ring-blue-500" type="checkbox" id="editSelectAll" onclick="toggleSelectAllEdit(this)" />
-                                            <label class="ml-2 text-gray-700 form-check-label" for="editSelectAll">Select All</label>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                <table class="min-w-full bg-white divide-y divide-gray-200 shadow-sm rounded-lg">
+    <tbody class="divide-y divide-gray-200">
+        <!-- Administrator Access -->
+        <tr>
+            <td class="px-4 py-3 font-semibold text-gray-700 whitespace-nowrap">Administrator Access</td>
+            <td class="px-4 py-3">
+                <div class="flex justify-end">
+                    <div class="form-check">
+                        <input class="form-check-input rounded-full border-gray-300 focus:ring-blue-500" type="checkbox" id="editSelectAll" onclick="toggleSelectAllEdit(this)" />
+                        <label class="ml-2 text-gray-700 form-check-label" for="editSelectAll">Select All</label>
+                    </div>
+                </div>
+            </td>
+        </tr>
 
-                            <!-- Grouped Permissions -->
+        <!-- Grouped Permissions -->
+        @php
+            $groupedPermissions = [];
+            foreach ($permissions as $permission) {
+                $parts = explode('_', $permission->title);
+                $prefix = $parts[0] . '_' . $parts[1];
+                $groupedPermissions[$prefix][] = $permission;
+            }
+        @endphp
+
+        @foreach ($groupedPermissions as $group => $groupPermissions)
+            <tr>
+                <!-- Group Name -->
+                <td class="px-4 py-3 font-semibold text-gray-700 whitespace-nowrap">{{ str_replace('_', ' ', $group) }}</td>
+                <td class="px-4 py-3">
+                    <div class="flex justify-end space-x-4">
+                        <!-- Permissions (Read, Write, Create) -->
+                        @foreach (['Read', 'Write', 'Create'] as $action)
                             @php
-                                $groupedPermissions = [];
-                                foreach ($permissions as $permission) {
-                                    $parts = explode('_', $permission->title);
-                                    $prefix = $parts[0] . '_' . $parts[1];
-                                    $groupedPermissions[$prefix][] = $permission;
-                                }
+                                // Check if the permission exists
+                                $permission = array_filter($groupPermissions, function ($perm) use ($group, $action) {
+                                    return $perm->title === $group . '_' . $action;
+                                });
+                                $permission = reset($permission); // Get the first matched permission
                             @endphp
+                            @if ($permission) <!-- Only show if permission exists -->
+                                <div class="form-check">
+                                    <input class="form-check-input rounded-full border-gray-300 focus:ring-blue-500" 
+                                           type="checkbox" 
+                                           name="permissions[]" 
+                                           id="edit_{{ $group }}_{{ strtolower($action) }}" 
+                                           value="{{ optional($permission)->id }}" 
+                                           {{ $permission ? 'checked' : '' }} /> <!-- Check if exists -->
+                                    <label class="ml-2 text-gray-700 form-check-label" for="edit_{{ $group }}_{{ strtolower($action) }}">{{ $action }}</label>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
 
-                            @foreach ($groupedPermissions as $group => $groupPermissions)
-                                <tr>
-                                    <!-- Group Name -->
-                                    <td class="px-4 py-3 font-semibold text-gray-700 whitespace-nowrap">{{ str_replace('_', ' ', $group) }}</td>
-                                    <td class="px-4 py-3">
-                                        <div class="flex justify-end space-x-4">
-                                            <!-- Permissions (Read, Write, Create) -->
-                                            @foreach (['Read', 'Write', 'Create'] as $action)
-                                                @php
-                                                    $permission = array_filter($groupPermissions, function ($perm) use ($group, $action) {
-                                                        return $perm->title === $group . '_' . $action;
-                                                    });
-                                                    $permission = reset($permission);
-                                                @endphp
-                                                <div class="form-check">
-                                                    <input class="form-check-input rounded-full border-gray-300 focus:ring-blue-500" type="checkbox" name="permissions[]" id="edit_{{ $group }}_{{ strtolower($action) }}" value="{{ optional($permission)->id }}" />
-                                                    <label class="ml-2 text-gray-700 form-check-label" for="edit_{{ $group }}_{{ strtolower($action) }}">{{ $action }}</label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+
                 </div>
                 @error('permissions')
                     <div class="mt-2 text-sm text-red-500">{{ $message }}</div>
