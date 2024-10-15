@@ -33,6 +33,7 @@ class PermissionsController extends Controller
 
         return redirect()->route('permissions.index')->with('success', 'Permission created successfully!');
     }
+    
 
     public function update(Request $request, $id)
     {

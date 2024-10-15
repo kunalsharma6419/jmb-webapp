@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\RoleassignController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Chat\Chat;
 use App\Http\Livewire\Chat\Index;
@@ -35,6 +36,7 @@ Route::get('/contact-us', [HomeController::class, 'contactus'])->name('contactus
 Route::get('/request-quote', [HomeController::class, 'requestquote'])->name('requestquote');
 
 
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -55,8 +57,10 @@ Route::middleware('auth')->group(function (){
     Route::get('/chat/{query}',Chat::class)->name('chat');
 
     Route::get('/users',Users::class)->name('users');    
-    Route::resource('roles', RolesController::class); 
-    Route::resource('permissions', PermissionsController::class); 
+    Route::resource('roles', RolesController::class);
+    Route::resource('permissions', PermissionsController::class);
+    Route::post('asRoles', [RoleassignController::class, 'assignRoles'])->name('asRoles.assign');
+    
 
 
 
