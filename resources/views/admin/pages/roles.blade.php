@@ -79,53 +79,55 @@
 
             <!-- Table Body -->
             <tbody class="text-gray-600">
-                @foreach ($users as $index => $user)
-                <tr>
-                    <!-- User Name -->
-                    <td class="px-4 py-2 border border-l-0">
-                        <p class="font-bold">{{ $user->name }}</p>
-                    </td>
-                    <!-- Email -->
-                    <td class="px-4 py-2 text-right border border-l-0">{{ $user->email }}</td>
-                    <!-- Roles -->
-                    <td class="px-4 py-2 text-right border border-l-0">
-                        @if ($user->roles->isEmpty())
-                            <span class="text-gray-400">No Roles</span>
-                        @else
-                            @foreach ($user->roles as $role)
-                                <span class="badge bg-primary">{{ $role->title }}</span>
-                            @endforeach
-                        @endif
-                    </td>
-                    <!-- Status -->
-                    <td class="px-4 py-2 text-right border border-l-0">
-                        <span class="badge 
-                            {{ 
-                                $user->profile_status == 'activated' ? 'bg-label-success' : 
-                                ($user->profile_status == 'deactivated' ? 'bg-label-danger' : 
-                                ($user->profile_status == 'hold' ? 'bg-label-warning' : '')) 
-                            }}">
-                            {{ ucfirst($user->profile_status) }}
-                        </span>
-                    </td>
-                    <!-- Actions -->
-                    <td class="px-4 py-2 text-right border border-l-0">
-                        <button type="button" class="btn btn-primary edit-user-btn" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#editUser" 
-                                data-id="{{ $user->id }}" 
-                                data-name="{{ $user->name }}" 
-                                data-status="{{ $user->profile_status }}" 
-                                data-roles="{{ json_encode($user->roles->pluck('id')) }}"> 
-                            Edit
-                        </button>
-                    </td>
-                </tr>
+                @foreach ($users as $user)
+                    @if ($user->id !== Auth::id()) 
+                        <!-- User Name -->
+                        <td class="px-4 py-2 border border-l-0">
+                            <p class="font-bold">{{ $user->name }}</p>
+                        </td>
+                        <!-- Email -->
+                        <td class="px-4 py-2 text-right border border-l-0">{{ $user->email }}</td>
+                        <!-- Roles -->
+                        <td class="px-4 py-2 text-right border border-l-0">
+                            @if ($user->roles->isEmpty())
+                                <span class="text-gray-400">No Roles</span>
+                            @else
+                                @foreach ($user->roles as $role)
+                                    <span class="badge bg-primary">{{ $role->title }}</span>
+                                @endforeach
+                            @endif
+                        </td>
+                        <!-- Status -->
+                        <td class="px-4 py-2 text-right border border-l-0">
+                            <span class="badge 
+                                {{ 
+                                    $user->profile_status == 'activated' ? 'bg-label-success' : 
+                                    ($user->profile_status == 'deactivated' ? 'bg-label-danger' : 
+                                    ($user->profile_status == 'hold' ? 'bg-label-warning' : '')) 
+                                }}">
+                                {{ ucfirst($user->profile_status) }}
+                            </span>
+                        </td>
+                        <!-- Actions -->
+                        <td class="px-4 py-2 text-right border border-l-0">
+                            <button type="button" class="btn btn-primary edit-user-btn" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#editUser" 
+                                    data-id="{{ $user->id }}" 
+                                    data-name="{{ $user->name }}" 
+                                    data-status="{{ $user->profile_status }}" 
+                                    data-roles="{{ json_encode($user->roles->pluck('id')) }}"> 
+                                Edit
+                            </button>
+                        </td>
+                    </tr>
+                    @endif
                 @endforeach
             </tbody>
             <!-- End Table Body -->
         </table>
     </div>
 </div>
+
 
 @endsection

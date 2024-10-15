@@ -55,6 +55,21 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_users'); 
     }
 
+    public function hasPermission($permission)
+    {
+        return $this->roles()
+            ->join('permission_roles', function ($join) {
+                $join->on('roles.id', '=', 'permission_roles.role_id')
+                     ->whereNull('permission_roles.deleted_at'); 
+            })
+            ->join('permissions', function ($join) {
+                $join->on('permission_roles.permission_id', '=', 'permissions.id')
+                     ->whereNull('permissions.deleted_at'); 
+            })
+            ->where('permissions.title', $permission) 
+            ->exists(); 
+    }
+
     /**
      * The channels the user receives notification broadcasts on.
      */
