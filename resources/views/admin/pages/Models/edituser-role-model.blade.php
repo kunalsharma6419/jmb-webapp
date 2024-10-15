@@ -1,6 +1,6 @@
 <!-- Edit User Modal -->
 <div id="editUserModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-    <div class="bg-white rounded-lg shadow-lg p-8 relative w-full max-w-md"> <!-- Increased width -->
+    <div class="bg-white rounded-lg shadow-lg p-8 relative w-full max-w-xl"> <!-- Increased width -->
         <button type="button" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeEditUserModal">
             &times; <!-- Close button -->
         </button>
@@ -14,12 +14,12 @@
 
             <div class="mb-4">
                 <label for="modalEditUserName" class="block text-sm font-medium text-gray-700">Username</label>
-                <input type="text" id="modalEditUserName" name="modalEditUserName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500" value="" readonly />
+                <input type="text" id="modalEditUserName" name="modalEditUserName" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-3" value="" readonly />
             </div>
 
             <div class="mb-4">
                 <label for="userStatusSelect" class="block text-sm font-medium text-gray-700">Status</label>
-                <select id="userStatusSelect" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500" name="status">
+                <select id="userStatusSelect" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:border-blue-500 p-3" name="status">
                     <option value="activated">Activated</option>
                     <option value="deactivated">Deactivated</option>
                     <option value="hold">Hold</option>
