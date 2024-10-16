@@ -24,32 +24,36 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
-{
-    // Validate credentials
-    if (!Auth::attempt($request->only('email', 'password'))) {
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+    {
+        // Validate credentials
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
+        }
+    
+        // Check the profile status of the authenticated user
+        $user = Auth::user();
+        if ($user->profile_status === 'deactivated') {
+            Auth::logout(); // Log out the user
+            return back()->withErrors(['account' => 'Your account has been deactivated. Please contact the administrator.']);
+        }
+    
+        if ($user->profile_status === 'hold') {
+            Auth::logout(); // Log out the user
+            return back()->withErrors(['account' => 'Your account is on hold. Please contact the administrator.']);
+        }
+    
+        // Regenerate the session
+        $request->session()->regenerate();
+    
+        // Flash success message to session
+        $request->session()->flash('success', 'Login successful! Welcome, ' . $user->name . '.');
+    
+        // Redirect to intended route
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
-
-    // Check the profile status of the authenticated user
-    $user = Auth::user();
-    if ($user->profile_status === 'deactivated') {
-        Auth::logout(); // Log out the user
-        return back()->withErrors(['account' => 'Your account has been deactivated. Please contact the administrator.']);
-    }
-
-    if ($user->profile_status === 'hold') {
-        Auth::logout(); // Log out the user
-        return back()->withErrors(['account' => 'Your account is on hold. Please contact the administrator.']);
-    }
-
-    // Regenerate the session
-    $request->session()->regenerate();
-
-    // Redirect to intended route
-    return redirect()->intended(RouteServiceProvider::HOME);
-}
+    
 
 
     /**
