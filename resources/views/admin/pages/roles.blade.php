@@ -114,7 +114,7 @@
                                         <span class="text-gray-400">No Roles</span>
                                     @else
                                         @foreach ($user->roles as $role)
-                                            <span class="badge bg-primary">{{ $role->title }}</span>
+                                            <span class="px-4 py-2 text-center text-purple-700 border border-l border-purple-500 rounded-full">{{ $role->title }}</span>
                                         @endforeach
                                     @endif
                                 </td>
@@ -122,9 +122,9 @@
                                 <td class="px-4 py-2 text-right border border-l-0">
                                     <span class="badge 
                                         {{ 
-                                            $user->profile_status == 'activated' ? 'bg-label-success' : 
-                                            ($user->profile_status == 'deactivated' ? 'bg-label-danger' : 
-                                            ($user->profile_status == 'hold' ? 'bg-label-warning' : '')) 
+                                            $user->profile_status == 'activated' ? 'px-4 py-2 text-center text-green-500 border border-l rounded-full' : 
+                                            ($user->profile_status == 'deactivated' ? 'px-4 py-2 text-center text-red-500 border border-l rounded-full' : 
+                                            ($user->profile_status == 'hold' ? 'px-4 py-2 text-center text-yellow-500 border border-l rounded-full' : '')) 
                                         }} ">
                                         {{ ucfirst($user->profile_status) }}
                                     </span>

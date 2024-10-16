@@ -6,7 +6,7 @@
 
 <!-- Start Permissions Management -->
 <div class="col-span-2 card xl:col-span-1">
-    <div class="card-header flex item-center justify-between">
+    <div class="flex justify-between card-header item-center">
         Permissions 
         <button type="button" class="btn btn-success" id="addPermissionButton">
             Add New Permission
@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th class="px-4 py-2 border-r">#</th>
-                    <th class="px-4 py-2 border-r"></th>
+                    
                     <th class="px-4 py-2 border-r">Name</th>
                     <th class="px-4 py-2 border-r">Assigned To</th>
                     <th class="px-4 py-2 border-r">Created Date</th>
@@ -33,14 +33,16 @@
                 @foreach ($permissions as $index => $permission)
                 <tr>
                     <td class="px-4 py-2 border border-l-0">{{ $index + 1 }}</td>
-                    <td class="px-4 py-2 border border-l-0"></td>
+                    
                     <td class="px-4 py-2 border border-l-0">{{ $permission->title }}</td>
                     <td class="px-4 py-2 border border-l-0">
                         @foreach ($permission->roles as $role)
-                            <span class="badge bg-primary">{{ $role->title }}</span>
+                            <span class="px-4 py-2 text-center text-purple-700 border border-l border-purple-500 rounded-full cursor-pointer">{{ $role->title }}</span>
                         @endforeach
                     </td>
-                    <td class="px-4 py-2 border border-l-0">{{ $permission->created_at ? $permission->created_at->format('d M Y') : 'N/A' }}</td>
+                    <td class="px-4 py-2 border border-l-0">
+                        
+                        {{ $permission->created_at ? $permission->created_at->format('d M Y') : 'N/A' }} </td>
 
                     <td class="flex gap-4 px-4 py-2 border border-l-0">
                         <!-- Edit Permission Button -->

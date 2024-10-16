@@ -59,8 +59,10 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'There were some errors',
+                    confirmButtonColor: "#DD6B55",
                     html: errorMessages ,
                     showConfirmButton: true
+                    
                 });
             @endif
     
@@ -69,6 +71,7 @@
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
+                    confirmButtonColor: "#DD6B55",
                     text: '{{ session('success') }}',
                     timer: 3000,
                     showConfirmButton: false
