@@ -56,9 +56,13 @@ Route::middleware('auth', 'checkUserStatus')->group(function (){
     Route::get('/chat',Index::class)->name('chat.index');
     Route::get('/chat/{query}',Chat::class)->name('chat');
 
-    Route::get('/users',Users::class)->name('users');    
-    Route::resource('roles', RolesController::class);
-    Route::resource('permissions', PermissionsController::class);
+    Route::get('/users',Users::class)->name('users');   
+     
+    Route::middleware(['superadmin'])->group(function () {
+        Route::resource('roles', RolesController::class);
+        Route::resource('permissions', PermissionsController::class);
+    });
+    
     
     Route::post('asRoles', [RoleassignController::class, 'assignRoles'])->name('asRoles.assign');
     

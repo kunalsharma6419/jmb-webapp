@@ -28,7 +28,7 @@
                                 @endforeach
                                 @if ($role->users->count() > 3)
                                     <li class="avatar">
-                                        <span class="avatar-initial rounded-full pull-up text-body" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ $role->users->count() - 3 }} more">+{{ $role->users->count() - 3 }}</span>
+                                        <span class="rounded-full avatar-initial pull-up text-body" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ $role->users->count() - 3 }} more">+{{ $role->users->count() - 3 }}</span>
                                     </li>
                                 @endif
                             </ul>
@@ -36,7 +36,7 @@
                         <!-- End Top Section -->
 
                         <!-- Bottom Section -->
-                        <div class="flex justify-between items-center">
+                        <div class="flex items-center justify-between">
                             <div class="role-heading">
                                 <h5 class="mb-1">{{ $role->title }}</h5>
                             <!-- Role Edit Link -->
@@ -60,7 +60,7 @@
 
         <!-- Add New Role Card -->
         <div class="col-xl-4 col-lg-6 col-md-6 role-card">
-            <div class="card h-100 text-center">
+            <div class="text-center card h-100">
                 <div class="card-body">
                     <button data-bs-target="#addRoleModal" id="openAddRoleModal" data-bs-toggle="modal" class="mb-4 btn btn-sm btn-primary text-nowrap add-new-role">Add New Role</button>
                     <p class="mb-0">Add role, if it does not exist</p>
@@ -69,12 +69,12 @@
         </div>
 
         <!-- Show All Roles Button (Right-Aligned Initially) -->
-        <div class="mt-4 d-flex justify-end" id="showAllRolesBtnContainer">
+        <div class="justify-end mt-4 d-flex" id="showAllRolesBtnContainer">
             <button id="showAllRolesBtn" class="btn-bs-primary">Show all Roles</button>
         </div>
 
         <!-- Collapse Button (Centered Initially Hidden) -->
-        <div class="mt-4 text-center hidden" id="collapseRolesBtnContainer">
+        <div class="hidden mt-4 text-center" id="collapseRolesBtnContainer">
             <button id="collapseRolesBtn" class="btn-bs-primary">Collapse Roles</button>
         </div>
     </div>
@@ -246,10 +246,12 @@
         // Close modal functionality
         document.getElementById('closeEditModal').addEventListener('click', function() {
             editRoleModal.classList.add('hidden');
+            editRoleForm.reset(); 
         });
 
         document.getElementById('cancelEditModal').addEventListener('click', function() {
             editRoleModal.classList.add('hidden');
+            editRoleForm.reset(); 
         });
     });
 

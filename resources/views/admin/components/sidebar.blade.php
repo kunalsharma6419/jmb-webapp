@@ -54,19 +54,22 @@
       </a>
       <!-- end link -->
 
-       <!-- link -->
-       <a href="/roles" class="mb-3 text-sm font-medium capitalize transition duration-500 ease-in-out hover:text-teal-600">
-        <i class="mr-2 text-xs fad fa-user"></i>
-        Roles
+      @if(auth()->check() && auth()->user()->is_superadmin)
+      <!-- Roles Link -->
+      <a href="/roles" class="mb-3 text-sm font-medium capitalize transition duration-500 ease-in-out hover:text-teal-600">
+          <i class="mr-2 text-xs fad fa-user"></i>
+          Roles
       </a>
-      <!-- end link -->
-
-       <!-- link -->
-       <a href="/permissions" class="mb-3 text-sm font-medium capitalize transition duration-500 ease-in-out hover:text-teal-600">
-        <i class="mr-2 text-xs fad fa-key"></i>
-        Permissions
+      <!-- End Roles Link -->
+  
+      <!-- Permissions Link -->
+      <a href="/permissions" class="mb-3 text-sm font-medium capitalize transition duration-500 ease-in-out hover:text-teal-600">
+          <i class="mr-2 text-xs fad fa-key"></i>
+          Permissions
       </a>
-      <!-- end link -->
+      <!-- End Permissions Link -->
+  @endif
+  
 
 
 
