@@ -55,43 +55,23 @@
       <!-- end link -->
 
   
+      @php
+      $sidebarController = new \App\Http\Controllers\SidebarController();
+      $sidebarItems = $sidebarController->index();
+  @endphp
   
 
-  @php
-  $sidebarController = new \App\Http\Controllers\SidebarController();
-  $sidebarItems = $sidebarController->index();
-
-  // Group items by parent_id to handle parent-child relationships
-  $menuItems = $sidebarItems->groupBy('parent_id');
-@endphp
-
-<ul class="sidebar-menu">
-  @foreach($menuItems as $parentId => $items) {{-- Iterate over grouped items --}}
-      @if(is_null($parentId)) {{-- Top-level menu items (where parent_id is null) --}}
-          @foreach($items as $parentItem)
-              @if(auth()->user()->is_superadmin || auth()->user()->hasPermission($parentItem->permission->title ?? '')) {{-- Check permissions --}}
-                  <li class="menu-item">
-                      <a href="{{ $parentItem->url }}" class="menu-link">
-                          <i class="{{ $parentItem->icon }}"></i>
-                          <div data-i18n="{{ $parentItem->menu_item }}">{{ $parentItem->menu_item }}</div>
-                      </a>
-                  </li>
-              @endif
-          @endforeach
-      @else {{-- Child items with a specific parent_id --}}
-          @foreach($items as $childItem)
-              @if(auth()->user()->is_superadmin || auth()->user()->hasPermission($childItem->permission->title ?? '')) {{-- Check permissions --}}
-                  <li class="menu-item">
-                      <a href="{{ $childItem->url }}" class="mb-3 text-sm font-medium capitalize transition duration-500 ease-in-out hover:text-teal-600  ">
-                          <i class="{{ $childItem->icon }}"></i>
-                          {{ $childItem->menu_item }}
-                      </a>
-                  </li>
-              @endif
-          @endforeach
-      @endif
-  @endforeach
-</ul>
+      @foreach($sidebarItems as $sidebarItem) {{-- Iterate through all sidebar items --}}
+          @if(auth()->user()->is_superadmin || auth()->user()->hasPermission($sidebarItem->permission->title ?? '')) {{-- Check permissions --}}
+              
+                  <a href="{{ $sidebarItem->url }}" class="mb-3 text-sm font-medium capitalize transition duration-500 ease-in-out hover:text-teal-600">
+                      <i class="mr-2 text-xs {{ $sidebarItem->icon }}"></i>
+                      {{ $sidebarItem->menu_item }}
+                  </a>
+          @endif
+      @endforeach
+ 
+  
 
 
 
