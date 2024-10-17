@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Permission;
 
@@ -12,13 +13,17 @@ class RolesController extends Controller
 {
     public function index()
 {
-    // Fetch users with their active roles
-    $users = User::with([
-        'roles' => function ($query) {
-            $query->select('roles.id', 'roles.title')
-                  ->whereNull('role_users.deleted_at');
-        }
-    ])->get();
+   // Fetch users with their active roles, excluding the logged-in user and superadmins
+$users = User::with([
+    'roles' => function ($query) {
+        $query->select('roles.id', 'roles.title')
+              ->whereNull('role_users.deleted_at');
+    }
+])
+->where('id', '!=', Auth::id()) // Exclude the logged-in user
+->where('is_superadmin', false) // Exclude superadmin users
+->get();
+
 
     // Fetch roles with their permissions and users
     $roles = Role::with([
@@ -40,26 +45,34 @@ class RolesController extends Controller
 }
 
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'modalRoleName' => 'required|string|max:255|unique:roles,title',
-            'permissions' => 'nullable|array',
-            'permissions.*' => 'exists:permissions,id',
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'modalRoleName' => [
+            'required',
+            'string',
+            'max:255',
+            'unique:roles,title', // Ensure the title is unique
+        ],
+        'permissions' => 'nullable|array',
+        'permissions.*' => 'exists:permissions,id',
+    ], [
+        'modalRoleName.unique' => 'Role name already exists.', // Custom error message
+    ]);
 
-        try {
-            $role = Role::create(['title' => $request->modalRoleName]);
+    try {
+        $role = Role::create(['title' => $request->modalRoleName]);
 
-            if (!empty($request->permissions)) {
-                $role->permissions()->attach($request->permissions);
-            }
-
-            return redirect()->back()->with('success', 'Role added successfully!');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Error adding the role.');
+        if (!empty($request->permissions)) {
+            $role->permissions()->attach($request->permissions);
         }
+
+        return redirect()->back()->with('success', 'Role added successfully!');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Error adding the role.');
     }
+}
+
 
     public function updateRoles(Request $request, $role_id)
     {
@@ -129,23 +142,30 @@ class RolesController extends Controller
     }
 
     public function update(Request $request, Role $role)
-    {
-        $request->validate([
-            'modalRoleName' => 'required|string|max:255|unique:roles,title,' . $role->id,
-            'permissions' => 'nullable|array',
-            'permissions.*' => 'exists:permissions,id',
-        ]);
+{
+    $request->validate([
+        'modalRoleName' => [
+            'required',
+            'string',
+            'max:255',
+            'unique:roles,title,' . $role->id, // Exclude the current role from the unique check
+        ],
+        'permissions' => 'nullable|array',
+        'permissions.*' => 'exists:permissions,id',
+    ], [
+        'modalRoleName.unique' => 'Role name already exists.', // Custom error message
+    ]);
 
-        try {
-            // Update role title
-            $role->update(['title' => $request->modalRoleName]);
+    try {
+        // Update role title
+        $role->update(['title' => $request->modalRoleName]);
 
-            // Update associated permissions
-            $this->updateRoles($request, $role->id);
+        // Update associated permissions
+        $this->updateRoles($request, $role->id);
 
-            return redirect()->back()->with('success', 'Role updated successfully!');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Error updating the role.');
-        }
+        return redirect()->back()->with('success', 'Role updated successfully!');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Error updating the role.');
     }
+}
 }
