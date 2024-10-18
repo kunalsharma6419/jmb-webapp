@@ -17,7 +17,7 @@ return new class extends Migration
                   ->default(0) // Default is not a superadmin
                   ->nullable()
                   ->after('profile_status'); // Place it after 'profile_status'
-                  $table->boolean('is_admin')->default(0)->nullable();
+                  $table->boolean('is_admin')->default(0)->nullable()->after('is_superadmin');
         });
     }
 
@@ -29,7 +29,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             // Dropping the 'is_superadmin' column during rollback
             $table->dropColumn('is_superadmin');
-            $table->dropColumn('is_admin');
+           
         });
     }
 };
